@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WACs On Wheels LHG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#909768;
+    --sage-deep:#6e744e;
+    --olive-circle:#575f2b;
+    --olive-deep:#2d3215;
+    --olive-text:#474d23;
+    --cream:#f8f6ee;
+    --paper:#fbfcfb;
+    --ink:#2f331d;
+    --red:#c31f2f;
+    --blue:#1d3f8f;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Poppins', 'Segoe UI', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- SITE HEADER / NAV ---------- */
+  .site-header{
+    background:var(--paper);
+    box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    position:sticky;
+    top:0;
+    z-index:50;
+  }
+  .nav-wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:12px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    position:relative;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--olive-deep);
+    flex-shrink:0;
+    order:1;
+  }
+  .brand img{
+    width:52px;height:auto;
+    display:block;
+  }
+  .brand span{
+    font-weight:700;
+    font-size:0.95rem;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    line-height:1.2;
+  }
+  .nav-toggle-checkbox{display:none;}
+  .nav-toggle-btn{
+    display:none;
+    cursor:pointer;
+    width:40px;height:40px;
+    border-radius:6px;
+    align-items:center;
+    justify-content:center;
+    background:var(--cream);
+    color:var(--olive-deep);
+    order:4;
+  }
+  .nav-toggle-btn svg{width:22px;height:22px;fill:currentColor;}
+  .site-nav{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    order:2;
+  }
+  .site-nav .nav-links{
+    display:flex;
+    align-items:center;
+    gap:26px;
+  }
+  .site-nav a.nav-link{
+    text-decoration:none;
+    color:var(--olive-text);
+    font-weight:600;
+    font-size:0.9rem;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    padding:6px 2px;
+    border-bottom:2px solid transparent;
+    transition:color 0.15s ease, border-color 0.15s ease;
+  }
+  .site-nav a.nav-link:hover, .site-nav a.nav-link.active{
+    color:var(--olive-deep);
+    border-color:var(--red);
+  }
+  .nav-social{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .nav-social a{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:var(--olive-circle);
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .nav-social a:hover{transform:scale(1.08);background:var(--olive-deep);}
+  .nav-social svg{width:17px;height:17px;fill:#fff;}
+
+  .lang-toggle{
+    display:flex;
+    gap:6px;
+    order:3;
+    flex-shrink:0;
+  }
+  .lang-toggle button{
+    font-family:'Poppins','Segoe UI',sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.5px;
+    padding:6px 12px;
+    border-radius:999px;
+    border:1.5px solid var(--olive-circle);
+    background:transparent;
+    color:var(--olive-text);
+    cursor:pointer;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .lang-toggle button.active{
+    background:var(--olive-circle);
+    color:#fff;
+  }
+  .lang-toggle button:hover{
+    background:var(--olive-deep);
+    color:#fff;
+  }
+  html[data-lang="en"] [data-show="nl"]{display:none;}
+  html[data-lang="nl"] [data-show="en"]{display:none;}
+
+  @media (max-width:820px){
+    .nav-toggle-btn{display:none;}
+    .nav-wrap{flex-wrap:wrap;}
+    .site-nav{
+      display:flex;
+      position:static;
+      background:none;
+      box-shadow:none;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      width:100%;
+      order:5;
+      padding:6px 0 0;
+    }
+    .site-nav .nav-links{
+      flex-direction:row;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      gap:6px 18px;
+      width:100%;
+    }
+    .site-nav a.nav-link{
+      width:auto;
+      padding:4px 2px;
+      border-bottom:2px solid transparent;
+    }
+    .nav-social{margin-top:0;justify-content:center;width:100%;}
+    main{padding:0 0 0;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(135deg, var(--olive-deep) 0%, var(--sage-deep) 100%);
+    color:#fff;
+    text-align:center;
+    padding:40px 24px 34px;
+  }
+  .hero .kicker{
+    display:block;
+    width:100%;
+    font-size:1.05rem;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--sage);
+    margin:0 auto 14px;
+    text-align:center !important;
+  }
+  .hero h1{
+    margin:0 auto;
+    max-width:720px;
+    font-size:clamp(1.7rem, 4vw, 2.6rem);
+    font-weight:800;
+    line-height:1.25;
+    text-shadow:0 2px 8px rgba(0,0,0,0.25);
+  }
+  .hero p{
+    max-width:600px;
+    margin:16px auto 0;
+    font-size:1rem;
+    line-height:1.75;
+    color:rgba(255,255,255,0.9);
+  }
+
+  /* ---------- ABOUT TEASER ---------- */
+  .about-teaser-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+    align-items:center;
+  }
+  @media (min-width:780px){
+    .about-teaser-grid{grid-template-columns:1fr 1.2fr;}
+  }
+  .about-photo{
+    aspect-ratio:2/3;
+    width:100%;
+    max-width:340px;
+    margin:0 auto;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 10px 26px rgba(45,50,21,0.25);
+  }
+  .about-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .about-teaser-text .about-lede{
+    font-size:0.97rem;
+    line-height:1.75;
+    color:var(--ink);
+    margin:10px 0 18px;
+  }
+  .link-more{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-weight:700;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:var(--olive-deep);
+    text-decoration:none;
+    border-bottom:2px solid var(--red);
+    padding-bottom:2px;
+  }
+  .link-more:hover{color:var(--red);}
+
+  /* ---------- MAIN SECTIONS ---------- */
+  main{padding:0 0 0;}
+  section{margin-bottom:64px;}
+  .section-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .section-head .dot{
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--red);
+    flex-shrink:0;
+  }
+  section h2{
+    font-size:1.3rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:var(--olive-deep);
+    margin:0;
+    padding-bottom:12px;
+    flex:1;
+    border-bottom:2px solid var(--sage);
+  }
+  .note{
+    font-size:0.88rem;
+    font-weight:400;
+    font-style:italic;
+    color:#6b6b56;
+    margin:10px 0 22px;
+    line-height:1.6;
+    max-width:640px;
+  }
+
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:16px;
+  }
+  .event, .lecture{
+    position:relative;
+    background:#fff;
+    border:1px solid rgba(58,68,27,0.1);
+    border-left:4px solid var(--olive-circle);
+    border-radius:6px;
+    padding:16px 18px 17px;
+    box-shadow:0 1px 4px rgba(47,51,29,0.05);
+    transition:box-shadow 0.18s ease, transform 0.18s ease;
+  }
+  .event:hover, .lecture:hover{
+    box-shadow:0 8px 20px rgba(47,51,29,0.13);
+    transform:translateY(-2px);
+  }
+  .event .date, .lecture .date{
+    font-weight:700;
+    color:var(--red);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  .event .title, .lecture .title{
+    font-weight:700;
+    font-size:1.05rem;
+    margin:6px 0 4px;
+    color:var(--ink);
+  }
+  .event .place, .lecture .place{
+    font-size:0.88rem;
+    font-weight:400;
+    color:#6b6b56;
+  }
+  .event .place a, .lecture .place a{
+    color:var(--olive-text);
+    text-decoration:none;
+    border-bottom:1px solid var(--sage);
+    font-weight:500;
+  }
+  .event .place a:hover, .lecture .place a:hover{
+    color:var(--red);
+    border-color:var(--red);
+  }
+  .tbd{
+    font-style:italic;
+    font-weight:500 !important;
+    color:#9a9a86 !important;
+  }
+
+  .event.past, .lecture.past{
+    background:#f0f0e9;
+    border-left-color:#b7b7a9;
+    box-shadow:none;
+  }
+  .event.past .date, .lecture.past .date{color:#9a9a8c;}
+  .event.past .title, .lecture.past .title{color:#7a7a6c;}
+  .event.past .place, .lecture.past .place{color:#9a9a8c;}
+  .event.past .place a, .lecture.past .place a{color:#8a8a78;border-color:#c9c9bd;}
+  .event.past:hover, .lecture.past:hover{transform:none;box-shadow:none;}
+
+  .lecture .note-time{
+    font-size:0.8rem;
+    font-style:italic;
+    color:#6b6b56;
+    margin-top:8px;
+  }
+  .lecture.past .note-time{color:#9a9a8c;}
+
+  .event{cursor:pointer;}
+  .expand-hint{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin-top:10px;
+    font-size:0.7rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:var(--olive-text);
+  }
+  .expand-hint svg{
+    width:12px;height:12px;
+    fill:currentColor;
+    transition:transform 0.2s ease;
+  }
+  .event.expanded .expand-hint svg{transform:rotate(180deg);}
+  .event-details{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+  }
+  .event.expanded .event-details{
+    max-height:500px;
+    opacity:1;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid rgba(58,68,27,0.12);
+  }
+  .event-details p{
+    margin:0 0 8px;
+    font-size:0.86rem;
+    line-height:1.6;
+    color:var(--ink);
+  }
+  .event-details p:last-child{margin-bottom:0;}
+  .event-details strong{color:var(--olive-deep);}
+  .event-details a.maps-link{
+    color:var(--olive-text);
+    text-decoration:none;
+    border-bottom:1px solid var(--sage);
+    font-weight:600;
+  }
+  .event-details a.maps-link:hover{color:var(--red);border-color:var(--red);}
+
+  /* ---------- INVITE BANNER ---------- */
+  .invite-wrap{padding:0 24px;}
+  .invite{
+    max-width:760px;
+    margin:0 auto;
+    background:var(--olive-deep);
+    color:#fff;
+    padding:36px 32px;
+    border-radius:10px;
+    text-align:center;
+    font-size:0.95rem;
+    font-weight:400;
+    line-height:1.7;
+    box-shadow:0 14px 30px rgba(45,50,21,0.28);
+  }
+  .invite .label{
+    display:block;
+    color:var(--sage);
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .invite a.email-link{
+    color:#fff;
+    font-weight:700;
+    text-decoration:none;
+    border-bottom:1px solid var(--sage);
+  }
+  .invite a.email-link:hover{color:var(--sage);}
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    background:var(--olive-deep);
+    color:rgba(255,255,255,0.85);
+    margin-top:64px;
+    padding:52px 24px 0;
+  }
+  .footer-grid{
+    max-width:1080px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:36px;
+    padding-bottom:36px;
+  }
+  @media (min-width:760px){
+    .footer-grid{grid-template-columns:1.6fr 1fr 1fr;}
+  }
+  .footer-brand{display:flex;align-items:center;gap:14px;}
+  .footer-brand img{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#fff;
+    padding:7px;
+    box-sizing:border-box;
+    object-fit:contain;
+    box-shadow:0 2px 8px rgba(0,0,0,0.2);
+  }
+  .footer-brand-text{font-size:0.85rem;line-height:1.6;color:rgba(255,255,255,0.7);max-width:280px;}
+  .footer-brand-text strong{display:block;color:#fff;font-size:1rem;margin-bottom:4px;}
+  .footer-col h3{
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--sage);
+    margin:0 0 14px;
+  }
+  .footer-col a{
+    display:block;
+    text-decoration:none;
+    color:rgba(255,255,255,0.8);
+    font-size:0.9rem;
+    margin-bottom:10px;
+    transition:color 0.15s ease;
+  }
+  .footer-col a:hover{color:#fff;}
+  .footer-social{display:flex;gap:10px;}
+  .footer-social a{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:0;
+  }
+  .footer-social a:hover{background:rgba(255,255,255,0.2);}
+  .footer-social svg{width:17px;height:17px;fill:#fff;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.15);
+    padding:20px 0;
+    text-align:center;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.55);
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="WACs On Wheels LHG logo">
+        <span>WACs On Wheels LHG</span>
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      </label>
+
+      <div class="lang-toggle">
+        <button type="button" data-lang-btn="en" class="active">EN</button>
+        <button type="button" data-lang-btn="nl">NL</button>
+      </div>
+
+      <nav class="site-nav">
+        <div class="nav-links">
+          <a class="nav-link active" href="index.html" data-en="Home" data-nl="Home">Home</a>
+          <a class="nav-link" href="about.html" data-en="About" data-nl="Over ons">About</a>
+          <a class="nav-link" href="#events" data-en="Events" data-nl="Evenementen">Events</a>
+          <a class="nav-link" href="contact.html" data-en="Contact" data-nl="Contact">Contact</a>
+        </div>
+        <div class="nav-social">
+          <a href="https://www.facebook.com/WACsOnWheelsLHG" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/wacs_on_wheels_lhg/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.07.05 1.8.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.07-.22 1.8-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.63.25-1.36.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.07-.05-1.8-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.63-.42-1.36-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.07.22-1.8.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.08.28 6.81.11 7.88.06 8.95.01 9.3 0 12 0zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.17 1.17 0 1 1 0-2.34 1.17 1.17 0 0 1 0 2.34z"/></svg>
+          </a>
+          <a href="mailto:wacs.on.wheels.lhg@gmail.com" target="_blank" rel="noopener" aria-label="Email us" title="Email us">
+            <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 2.24-7.4 6.47a1 1 0 0 1-1.2 0L4 8.24V18h16V8.24z"/></svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="kicker" id="hero-kicker"></p>
+    <h1 id="hero-title"></h1>
+    <p id="hero-text"></p>
+  </section>
+
+  <main>
+    <div class="container">
+
+      <section>
+        <div class="about-teaser-grid">
+          <div class="about-photo">
+            <img id="teaser-photo" src="images/group-photo-home.jpg" alt="WACs On Wheels LHG group photo">
+          </div>
+          <div class="about-teaser-text">
+            <div class="section-head">
+              <span class="dot"></span>
+              <h2 data-en="About Us" data-nl="Over Ons">About Us</h2>
+            </div>
+            <p class="about-lede" id="teaser-text"></p>
+            <a class="link-more" href="about.html" data-en="Read more about us &rarr;" data-nl="Lees meer over ons &rarr;">Read more about us &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="events">
+        <div class="section-head">
+          <span class="dot"></span>
+          <h2 data-en="2026 Event Calendar" data-nl="Evenementenkalender 2026">2026 Event Calendar</h2>
+        </div>
+        <p class="note" data-en="Subject to change &mdash; each event is announced separately on our socials, so keep an eye on Facebook &amp; Instagram closer to the date." data-nl="Onder voorbehoud &mdash; elk evenement wordt apart aangekondigd op onze social media, dus blijf Facebook &amp; Instagram in de gaten houden dichter bij de datum.">Subject to change &mdash; each event is announced separately on our socials, so keep an eye on Facebook &amp; Instagram closer to the date.</p>
+
+        <div class="card-grid" id="events-grid"></div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <span class="dot"></span>
+          <h2 data-en="Lectures &mdash; S/Sgt. Garland" data-nl="Lezingen &mdash; S/Sgt. Garland">Lectures &mdash; S/Sgt. Garland</h2>
+        </div>
+        <p class="note" data-en="Talks given in Dutch. Subject to change &mdash; bookings go through our email and are forwarded to S/Sgt. Garland." data-nl="Lezingen worden in het Nederlands gegeven. Onder voorbehoud &mdash; aanvragen verlopen via onze e-mail en worden doorgestuurd naar S/Sgt. Garland.">Talks given in Dutch. Subject to change &mdash; bookings go through our email and are forwarded to S/Sgt. Garland.</p>
+
+        <div class="card-grid" id="lectures-grid"></div>
+      </section>
+
+    </div>
+
+    <div class="invite-wrap">
+      <div class="invite">
+        <span class="label" data-en="Invite Us" data-nl="Nodig Ons Uit">Invite Us</span>
+        <span data-en='Want us at your event?&lt;br&gt;Email &lt;a class="email-link" href="mailto:wacs.on.wheels.lhg@gmail.com"&gt;wacs.on.wheels.lhg@gmail.com&lt;/a&gt; &amp;mdash; we can&rsquo;t wait to meet you!' data-nl='Wil je ons bij jouw evenement?&lt;br&gt;Mail naar &lt;a class="email-link" href="mailto:wacs.on.wheels.lhg@gmail.com"&gt;wacs.on.wheels.lhg@gmail.com&lt;/a&gt; &amp;mdash; we kunnen niet wachten om je te ontmoeten!'>Want us at your event?<br>
+        Email <a class="email-link" href="mailto:wacs.on.wheels.lhg@gmail.com">wacs.on.wheels.lhg@gmail.com</a> &mdash; we can't wait to meet you!</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="WACs On Wheels LHG logo">
+        <div class="footer-brand-text">
+          <strong>WACs On Wheels LHG</strong>
+          <span data-en="WWII Living History Group &middot; Honoring the Women of the Transportation Corps." data-nl="WWII Living History Groep &middot; Ter ere van de vrouwen van het Transportation Corps.">WWII Living History Group &middot; Honoring the Women of the Transportation Corps.</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3 data-en="Quick Links" data-nl="Snelle Links">Quick Links</h3>
+        <a href="index.html" data-en="Home" data-nl="Home">Home</a>
+        <a href="about.html" data-en="About Us" data-nl="Over Ons">About Us</a>
+        <a href="#events" data-en="Event Calendar" data-nl="Evenementenkalender">Event Calendar</a>
+        <a href="contact.html" data-en="Contact" data-nl="Contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-en="Follow Us" data-nl="Volg Ons">Follow Us</h3>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/WACsOnWheelsLHG" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/wacs_on_wheels_lhg/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.07.05 1.8.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.07-.22 1.8-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.63.25-1.36.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.07-.05-1.8-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.63-.42-1.36-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.07.22-1.8.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.08.28 6.81.11 7.88.06 8.95.01 9.3 0 12 0zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.17 1.17 0 1 1 0-2.34 1.17 1.17 0 0 1 0 2.34z"/></svg>
+          </a>
+          <a href="mailto:wacs.on.wheels.lhg@gmail.com" target="_blank" rel="noopener" aria-label="Email">
+            <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 2.24-7.4 6.47a1 1 0 0 1-1.2 0L4 8.24V18h16V8.24z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" data-en="WACs On Wheels LHG &middot; Living History Group" data-nl="WACs On Wheels LHG &middot; Living History Groep">WACs On Wheels LHG &middot; Living History Group</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+  <script>
+  (function(){
+    var siteData = { home:null, events:null, lectures:null };
+
+    function esc(s){
+      return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function setLang(lang){
+      document.documentElement.setAttribute('data-lang', lang);
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        var val = lang === 'nl' ? el.getAttribute('data-nl') : el.getAttribute('data-en');
+        if(val !== null){ el.innerHTML = val; }
+      });
+      document.querySelectorAll('.lang-toggle button').forEach(function(btn){
+        btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+      });
+      try{ localStorage.setItem('wow-lang', lang); }catch(e){}
+      renderDynamic(lang);
+    }
+
+    function markPastEvents(){
+      var today = new Date();
+      today.setHours(0,0,0,0);
+      document.querySelectorAll('[data-date]').forEach(function(el){
+        var d = new Date(el.getAttribute('data-date') + 'T00:00:00');
+        if(d < today){ el.classList.add('past'); }
+      });
+    }
+
+    function sortEventsByStatus(){
+      document.querySelectorAll('.card-grid').forEach(function(grid){
+        var cards = Array.prototype.slice.call(grid.children);
+        var upcoming = cards.filter(function(c){ return !c.classList.contains('past'); });
+        var past = cards.filter(function(c){ return c.classList.contains('past'); });
+        upcoming.concat(past).forEach(function(c){ grid.appendChild(c); });
+      });
+    }
+
+    function renderPlace(item, lang){
+      var loc = lang === 'nl' ? item.location_nl : item.location_en;
+      var venueHtml = '';
+      if(item.venue_name){
+        venueHtml = item.venue_url ? '<a href="'+item.venue_url+'" target="_blank" rel="noopener">'+esc(item.venue_name)+'</a>' : esc(item.venue_name);
+      }
+      if(venueHtml && loc){ return venueHtml + ' &middot; ' + esc(loc); }
+      return venueHtml || esc(loc) || '';
+    }
+
+    function eventCardHTML(ev, lang){
+      var detailsMd = (lang === 'nl' ? ev.details_nl : ev.details_en) || '';
+      var detailsHtml = (window.marked && window.marked.parse) ? marked.parse(detailsMd) : esc(detailsMd);
+      var moreLabel = lang === 'nl' ? 'Meer info' : 'More info';
+      return '<div class="event" data-date="'+ev.date_iso+'">'
+        + '<div class="date">'+esc(ev.date_display)+'</div>'
+        + '<div class="title">'+esc(ev.title)+'</div>'
+        + '<div class="place">'+renderPlace(ev, lang)+'</div>'
+        + '<div class="expand-hint"><span>'+moreLabel+'</span><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>'
+        + '<div class="event-details">'+detailsHtml+'</div>'
+        + '</div>';
+    }
+
+    function lectureCardHTML(lec, lang){
+      var note = (lang === 'nl' ? lec.note_nl : lec.note_en) || '';
+      var venueHtml = lec.venue_url ? '<a href="'+lec.venue_url+'" target="_blank" rel="noopener">'+esc(lec.venue_name)+'</a>' : esc(lec.venue_name);
+      return '<div class="lecture" data-date="'+lec.date_iso+'">'
+        + '<div class="date">'+esc(lec.date_display)+'</div>'
+        + '<div class="title">'+esc(lec.title)+'</div>'
+        + '<div class="place">'+esc(lec.event_name)+' &middot; '+venueHtml+' (NL)</div>'
+        + '<div class="note-time">'+esc(note)+'</div>'
+        + '</div>';
+    }
+
+    function renderHome(lang){
+      if(!siteData.home) return;
+      var d = siteData.home;
+      var kicker = document.getElementById('hero-kicker');
+      var title = document.getElementById('hero-title');
+      var text = document.getElementById('hero-text');
+      var photo = document.getElementById('teaser-photo');
+      var teaser = document.getElementById('teaser-text');
+      if(kicker) kicker.textContent = lang === 'nl' ? d.hero_kicker_nl : d.hero_kicker_en;
+      if(title) title.textContent = lang === 'nl' ? d.hero_title_nl : d.hero_title_en;
+      if(text) text.textContent = lang === 'nl' ? d.hero_text_nl : d.hero_text_en;
+      if(photo && d.photo) photo.src = d.photo;
+      if(teaser) teaser.textContent = lang === 'nl' ? d.teaser_nl : d.teaser_en;
+    }
+
+    function renderEvents(lang){
+      if(!siteData.events) return;
+      var grid = document.getElementById('events-grid');
+      if(!grid) return;
+      grid.innerHTML = siteData.events.events.map(function(ev){ return eventCardHTML(ev, lang); }).join('');
+    }
+
+    function renderLectures(lang){
+      if(!siteData.lectures) return;
+      var grid = document.getElementById('lectures-grid');
+      if(!grid) return;
+      grid.innerHTML = siteData.lectures.lectures.map(function(lec){ return lectureCardHTML(lec, lang); }).join('');
+    }
+
+    function renderDynamic(lang){
+      renderHome(lang);
+      renderEvents(lang);
+      renderLectures(lang);
+      markPastEvents();
+      sortEventsByStatus();
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.lang-toggle button').forEach(function(btn){
+        btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-lang-btn')); });
+      });
+      document.addEventListener('click', function(e){
+        var card = e.target.closest('.event');
+        if(!card) return;
+        if(e.target.closest('a')) return;
+        card.classList.toggle('expanded');
+      });
+      var saved = 'en';
+      try{ saved = localStorage.getItem('wow-lang') || 'en'; }catch(e){}
+      Promise.all([
+        fetch('data/home.json').then(function(r){ return r.json(); }),
+        fetch('data/events.json').then(function(r){ return r.json(); }),
+        fetch('data/lectures.json').then(function(r){ return r.json(); })
+      ]).then(function(results){
+        siteData.home = results[0];
+        siteData.events = results[1];
+        siteData.lectures = results[2];
+        setLang(saved);
+      });
+    });
+  })();
+  </script>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user){
+        if (!user) {
+          window.netlifyIdentity.on("login", function(){
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

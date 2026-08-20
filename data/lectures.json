@@ -1,0 +1,44 @@
+{
+  "lectures": [
+    {
+      "date_display": "14 March · 60 min",
+      "date_iso": "2026-03-14",
+      "title": "De Women's Army Corps tijdens WO2",
+      "event_name": "Women's History Weekend",
+      "venue_name": "Oorlogsmuseum Overloon",
+      "venue_url": "https://www.oorlogsmuseum.nl/en/events/",
+      "note_en": "Exact time to be announced on the Oorlogsmuseum Overloon event website.",
+      "note_nl": "Exacte tijd wordt bekendgemaakt op de evenementenpagina van Oorlogsmuseum Overloon."
+    },
+    {
+      "date_display": "15 March · 60 min",
+      "date_iso": "2026-03-15",
+      "title": "De Women's Army Corps tijdens WO2",
+      "event_name": "Women's History Weekend",
+      "venue_name": "Oorlogsmuseum Overloon",
+      "venue_url": "https://www.oorlogsmuseum.nl/en/events/",
+      "note_en": "Exact time to be announced on the Oorlogsmuseum Overloon event website.",
+      "note_nl": "Exacte tijd wordt bekendgemaakt op de evenementenpagina van Oorlogsmuseum Overloon."
+    },
+    {
+      "date_display": "29 August · 60 min",
+      "date_iso": "2026-08-29",
+      "title": "De Women's Army Corps in Europa tijdens WO2",
+      "event_name": "Eyewitness Event",
+      "venue_name": "Oorlogsmuseum Overloon",
+      "venue_url": "https://www.oorlogsmuseum.nl/en/events/eyewitness-event/program/",
+      "note_en": "Exact time to be announced on the Oorlogsmuseum Overloon event website.",
+      "note_nl": "Exacte tijd wordt bekendgemaakt op de evenementenpagina van Oorlogsmuseum Overloon."
+    },
+    {
+      "date_display": "30 August · 60 min",
+      "date_iso": "2026-08-30",
+      "title": "De Women's Army Corps in Europa tijdens WO2",
+      "event_name": "Eyewitness Event",
+      "venue_name": "Oorlogsmuseum Overloon",
+      "venue_url": "https://www.oorlogsmuseum.nl/en/events/eyewitness-event/program/",
+      "note_en": "Exact time to be announced on the Oorlogsmuseum Overloon event website.",
+      "note_nl": "Exacte tijd wordt bekendgemaakt op de evenementenpagina van Oorlogsmuseum Overloon."
+    }
+  ]
+}

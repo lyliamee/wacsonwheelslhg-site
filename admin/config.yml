@@ -1,0 +1,87 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: "events"
+    label: "Evenementen"
+    files:
+      - name: "events"
+        label: "Evenementenkalender"
+        file: "data/events.json"
+        fields:
+          - label: "Evenementen"
+            name: "events"
+            widget: "list"
+            summary: "{{title}} — {{date_display}}"
+            fields:
+              - {label: "Datum (weergave op de site)", name: "date_display", widget: "string", hint: "Bijv. 18–20 September"}
+              - {label: "Datum (voor sortering, laatste dag)", name: "date_iso", widget: "date", format: "YYYY-MM-DD"}
+              - {label: "Titel", name: "title", widget: "string"}
+              - {label: "Naam locatie", name: "venue_name", widget: "string", required: false}
+              - {label: "Link naar locatie (optioneel)", name: "venue_url", widget: "string", required: false}
+              - {label: "Plaats / land (Engels)", name: "location_en", widget: "string", required: false}
+              - {label: "Plaats / land (Nederlands)", name: "location_nl", widget: "string", required: false}
+              - {label: "Details bij 'Meer info' (Engels)", name: "details_en", widget: "markdown"}
+              - {label: "Details bij 'Meer info' (Nederlands)", name: "details_nl", widget: "markdown"}
+  - name: "lectures"
+    label: "Lezingen"
+    files:
+      - name: "lectures"
+        label: "Lezingenoverzicht"
+        file: "data/lectures.json"
+        fields:
+          - label: "Lezingen"
+            name: "lectures"
+            widget: "list"
+            summary: "{{title}} — {{date_display}}"
+            fields:
+              - {label: "Datum (weergave op de site)", name: "date_display", widget: "string"}
+              - {label: "Datum (voor sortering)", name: "date_iso", widget: "date", format: "YYYY-MM-DD"}
+              - {label: "Titel", name: "title", widget: "string"}
+              - {label: "Bij welk evenement", name: "event_name", widget: "string"}
+              - {label: "Naam locatie", name: "venue_name", widget: "string"}
+              - {label: "Link naar locatie (optioneel)", name: "venue_url", widget: "string", required: false}
+              - {label: "Opmerking (Engels)", name: "note_en", widget: "string"}
+              - {label: "Opmerking (Nederlands)", name: "note_nl", widget: "string"}
+  - name: "home"
+    label: "Homepage"
+    files:
+      - name: "home"
+        label: "Homepage inhoud"
+        file: "data/home.json"
+        fields:
+          - {label: "Kop boven titel (Engels)", name: "hero_kicker_en", widget: "string"}
+          - {label: "Kop boven titel (Nederlands)", name: "hero_kicker_nl", widget: "string"}
+          - {label: "Titel (Engels)", name: "hero_title_en", widget: "string"}
+          - {label: "Titel (Nederlands)", name: "hero_title_nl", widget: "string"}
+          - {label: "Ondertekst (Engels)", name: "hero_text_en", widget: "text"}
+          - {label: "Ondertekst (Nederlands)", name: "hero_text_nl", widget: "text"}
+          - {label: "Groepsfoto op homepage", name: "photo", widget: "image"}
+          - {label: "Korte 'Over ons' tekst (Engels)", name: "teaser_en", widget: "text"}
+          - {label: "Korte 'Over ons' tekst (Nederlands)", name: "teaser_nl", widget: "text"}
+  - name: "about"
+    label: "Over ons pagina"
+    files:
+      - name: "about"
+        label: "Over ons inhoud"
+        file: "data/about.json"
+        fields:
+          - {label: "Groepsfoto", name: "photo", widget: "image"}
+          - {label: "Over ons tekst (Engels)", name: "about_en", widget: "markdown"}
+          - {label: "Over ons tekst (Nederlands)", name: "about_nl", widget: "markdown"}
+          - {label: "Flyer afbeelding", name: "flyer_image", widget: "image"}
+          - {label: "Word lid tekst (Engels)", name: "member_text_en", widget: "markdown"}
+          - {label: "Word lid tekst (Nederlands)", name: "member_text_nl", widget: "markdown"}
+  - name: "contact"
+    label: "Contact pagina"
+    files:
+      - name: "contact"
+        label: "Contact inhoud"
+        file: "data/contact.json"
+        fields:
+          - {label: "Introductietekst (Engels)", name: "intro_en", widget: "markdown"}
+          - {label: "Introductietekst (Nederlands)", name: "intro_nl", widget: "markdown"}
