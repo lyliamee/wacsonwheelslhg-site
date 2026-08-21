@@ -156,15 +156,15 @@
   html[data-lang="nl"] [data-show="en"]{display:none;}
 
   @media (max-width:820px){
-    .nav-toggle-btn{display:none;}
-    .nav-wrap{flex-wrap:wrap;gap:10px;padding:12px 16px;}
+    .nav-wrap{flex-wrap:wrap;gap:8px;padding:10px 16px;}
     .brand{gap:8px;}
-    .brand img{width:34px;}
-    .brand span{font-size:0.72rem;}
-    .lang-toggle{gap:5px;}
+    .brand img{width:32px;}
+    .brand span{font-size:0.68rem;}
+    .lang-toggle{gap:5px;order:3;}
     .lang-toggle button{padding:4px 8px;font-size:0.6rem;}
+    .nav-toggle-btn{display:flex;order:4;}
     .site-nav{
-      display:flex;
+      display:none;
       position:static;
       background:none;
       box-shadow:none;
@@ -173,8 +173,11 @@
       gap:10px;
       width:100%;
       order:5;
-      padding:6px 0 0;
+      padding:12px 0 16px;
+      border-top:1px solid rgba(45,50,21,0.08);
+      margin-top:4px;
     }
+    .nav-toggle-checkbox:checked ~ .site-nav{display:flex;}
     .site-nav .nav-links{
       flex-direction:row;
       flex-wrap:wrap;
