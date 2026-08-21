@@ -259,17 +259,6 @@
   @media (max-width:600px){
     .lang-card{padding:32px 24px;}
     .about-text p{font-size:0.98rem;}
-    .email-button{
-      font-size:0.85rem;
-      padding:12px 18px;
-      gap:8px;
-      max-width:100%;
-      flex-wrap:wrap;
-      justify-content:center;
-      text-align:center;
-      word-break:break-word;
-    }
-    .email-button svg{width:16px;height:16px;}
   }
 
   .contact-photo-section{
@@ -310,6 +299,16 @@
     box-shadow:0 12px 26px rgba(45,50,21,0.28);
   }
   .email-button svg{width:20px;height:20px;fill:#fff;flex-shrink:0;}
+  @media (max-width:600px){
+    .email-button{
+      font-size:0.68rem;
+      padding:10px 14px;
+      gap:6px;
+      max-width:100%;
+      white-space:nowrap;
+    }
+    .email-button svg{width:14px;height:14px;}
+  }
   .contact-note{
     font-size:0.82rem;
     color:#8a8a72;
