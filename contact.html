@@ -70,19 +70,6 @@
     letter-spacing:0.5px;
     line-height:1.2;
   }
-  .nav-toggle-checkbox{display:none;}
-  .nav-toggle-btn{
-    display:none;
-    cursor:pointer;
-    width:40px;height:40px;
-    border-radius:6px;
-    align-items:center;
-    justify-content:center;
-    background:var(--cream);
-    color:var(--olive-deep);
-    order:4;
-  }
-  .nav-toggle-btn svg{width:22px;height:22px;fill:currentColor;}
   .site-nav{
     display:flex;
     align-items:center;
@@ -163,9 +150,8 @@
     .brand span{font-size:0.68rem;}
     .lang-toggle{gap:5px;order:3;}
     .lang-toggle button{padding:4px 8px;font-size:0.6rem;}
-    .nav-toggle-btn{display:flex;order:4;}
     .site-nav{
-      display:none;
+      display:flex;
       position:static;
       background:none;
       box-shadow:none;
@@ -174,22 +160,20 @@
       gap:10px;
       width:100%;
       order:5;
-      padding:12px 0 16px;
-      border-top:1px solid rgba(45,50,21,0.08);
-      margin-top:4px;
+      padding:8px 0 0;
     }
-    .nav-toggle-checkbox:checked ~ .site-nav{display:flex;}
     .site-nav .nav-links{
       flex-direction:row;
-      flex-wrap:wrap;
+      flex-wrap:nowrap;
       justify-content:center;
       align-items:center;
-      gap:6px 18px;
+      gap:10px;
       width:100%;
     }
     .site-nav a.nav-link{
       width:auto;
-      padding:4px 2px;
+      padding:4px 1px;
+      font-size:0.68rem;
       border-bottom:2px solid transparent;
     }
     .nav-social{order:2;margin-top:0;gap:6px;}
@@ -425,11 +409,6 @@
         <img src="images/logo.png" alt="WACs On Wheels LHG logo">
         <span>WACs On Wheels LHG</span>
       </a>
-
-      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
-      <label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-      </label>
 
       <div class="lang-toggle">
         <button type="button" data-lang-btn="en" class="active">EN</button>
