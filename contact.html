@@ -261,6 +261,22 @@
     .about-text p{font-size:0.98rem;}
   }
 
+  .contact-photo-section{
+    display:flex;
+    justify-content:center;
+    margin-bottom:40px;
+  }
+  .contact-photo{
+    width:100%;
+    max-width:420px;
+    border-radius:12px;
+    box-shadow:0 10px 26px rgba(45,50,21,0.25);
+    display:block;
+  }
+  @media (max-width:820px){
+    .contact-photo-section{display:none;}
+  }
+
   /* ---------- CONTACT EMAIL ---------- */
   .email-button{
     display:inline-flex;
@@ -437,6 +453,9 @@
 
   <main>
     <div class="container">
+      <section class="contact-photo-section">
+        <img class="contact-photo" src="images/contact-photo.jpg" alt="Two WAC reenactors talking beside a Jeep">
+      </section>
       <section>
         <div class="about-grid">
           <div class="lang-card">
