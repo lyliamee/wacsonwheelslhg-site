@@ -248,10 +248,18 @@
     .about-text p{font-size:0.98rem;}
   }
 
+  .contact-layout{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    margin-bottom:64px;
+  }
+  .contact-layout > section{margin-bottom:0;}
+  .contact-layout .about-grid{justify-content:flex-start;}
   .contact-photo-section{
     display:flex;
     justify-content:center;
-    margin-bottom:40px;
+    flex:0 0 380px;
   }
   .contact-photo{
     width:100%;
@@ -446,34 +454,36 @@
 
   <main>
     <div class="container">
-      <section class="contact-photo-section">
-        <img class="contact-photo" src="images/contact-photo.jpg" alt="Two WAC reenactors talking beside a Jeep">
-      </section>
-      <section>
-        <div class="about-grid">
-          <div class="lang-card">
-            <div class="about-text" id="contact-intro"></div>
+      <div class="contact-layout">
+        <section class="contact-photo-section">
+          <img class="contact-photo" src="images/contact-photo.jpg" alt="Two WAC reenactors talking beside a Jeep">
+        </section>
+        <section>
+          <div class="about-grid">
+            <div class="lang-card">
+              <div class="about-text" id="contact-intro"></div>
 
-            <a class="email-button" href="mailto:wacs.on.wheels.lhg@gmail.com">
-              <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 2.24-7.4 6.47a1 1 0 0 1-1.2 0L4 8.24V18h16V8.24z"/></svg>
-              wacs.on.wheels.lhg@gmail.com
-            </a>
-            <p class="contact-note" data-en="We usually reply within a few days." data-nl="We reageren meestal binnen een paar dagen.">We usually reply within a few days.</p>
-
-            <div class="contact-divider"></div>
-
-            <p class="contact-follow-label" data-en="Or Find Us Here" data-nl="Of Vind Ons Hier">Or Find Us Here</p>
-            <div class="contact-social">
-              <a href="https://www.facebook.com/WACsOnWheelsLHG" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+              <a class="email-button" href="mailto:wacs.on.wheels.lhg@gmail.com">
+                <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 2.24-7.4 6.47a1 1 0 0 1-1.2 0L4 8.24V18h16V8.24z"/></svg>
+                wacs.on.wheels.lhg@gmail.com
               </a>
-              <a href="https://www.instagram.com/wacs_on_wheels_lhg/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.07.05 1.8.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.07-.22 1.8-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.63.25-1.36.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.07-.05-1.8-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.63-.42-1.36-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.07.22-1.8.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.08.28 6.81.11 7.88.06 8.95.01 9.3 0 12 0zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.17 1.17 0 1 1 0-2.34 1.17 1.17 0 0 1 0 2.34z"/></svg>
-              </a>
+              <p class="contact-note" data-en="We usually reply within a few days." data-nl="We reageren meestal binnen een paar dagen.">We usually reply within a few days.</p>
+
+              <div class="contact-divider"></div>
+
+              <p class="contact-follow-label" data-en="Or Find Us Here" data-nl="Of Vind Ons Hier">Or Find Us Here</p>
+              <div class="contact-social">
+                <a href="https://www.facebook.com/WACsOnWheelsLHG" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+                  <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/wacs_on_wheels_lhg/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+                  <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.07.05 1.8.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.07-.22 1.8-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.63.25-1.36.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.07-.05-1.8-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.63-.42-1.36-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.07.22-1.8.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.08.28 6.81.11 7.88.06 8.95.01 9.3 0 12 0zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.17 1.17 0 1 1 0-2.34 1.17 1.17 0 0 1 0 2.34z"/></svg>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </main>
 
